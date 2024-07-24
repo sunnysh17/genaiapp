@@ -195,11 +195,9 @@ def lambda_handler(event, context):
         return next(item for item in event['requestBody']['content']['application/json']['properties'] if item['name'] == name)['value']
 
     def employeeDetails(event):
-        companyName = get_named_parameter(event, 'name').lower()
-        print("NAME PRINTED: ", companyName)
-
-        for company_info in company_data:
-            if company_info["companyName"].lower() == companyName:
-                return company_info
-
+        EmpId = get_named_parameter(event, 'name')
+        print("Employee Id: ", EmpId)
+        for emp_info in employee_data:
+            if emp_info["EmpID"] == EmpId:
+                return emp_info
         return None
