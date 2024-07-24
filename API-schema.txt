@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Employee Details Getter API",
+    "description": "API for matching the Job Description of Employees",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/employeeDetails": {
+      "post": {
+        "description": "Get Employee Details matched with JD",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Get the Employee Details",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response from Employee Data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "EmployeeData": {
+          "type": "object",
+          "description": "Employee data for a company",
+          "properties": {
+            "empid": {
+              "type": "number",
+              "description": "Employee ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Employee name"
+            },
+            "email": {
+              "type": "string",
+              "description": "Employee Email"
+            },
+            "role": {
+              "type": "string",
+              "description": "Employee role"
+            },
+            "skills": {
+              "type": "string",
+              "description": "Employee Skills"
+            },
+            "achievements": {
+              "type": "string",
+              "description": "Employee Acheivements"
+            },
+            "experience": {
+              "type": "string",
+              "description": "Employee Experience"
+            }
+          }
+        }
+      }
+    }
+  }
+}
